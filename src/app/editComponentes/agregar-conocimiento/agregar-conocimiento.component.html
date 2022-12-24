@@ -1,0 +1,28 @@
+<div class="row mt-1">
+    <div class="col-lg-4 offset-lg-4">
+        <div class="card bg-secondary mb-3" style="max-width: 25rem;">
+            <div class="card-header text-center">Agregar Conocimiento</div>
+            <div class="card-body">
+                <form [formGroup]="form" (ngSubmit)="confirmar()" >
+              <input formControlName="lenguaje" type="text" class="form-control" placeholder="Ingrese Lenguaje">
+              <span *ngIf="form.get('lenguaje')?.hasError('required') && form.get('lenguaje')?.touched ">
+El campo lenguaje es obligatorio!!
+              </span>
+              <label for="customRange3" class="form-label mt-2"> Dominio </label>
+              <input formControlName="skill" type="range" class="form-range form-control mt-1" min="0" max="100" >
+              <span *ngIf="form.get('skill')?.hasError('required') && form.get('skill')?.touched ">
+                El campo skill es obligatorio!!
+                              </span>
+              
+              <div class="row text-center mt-3">
+                <div class="col-lg-6"><button type="button" routerLink="/" class="btn btn-link">Cancelar</button></div>
+                <div class="col-lg-6"><button [disabled]="form.invalid" type="submit" class="btn btn-success">Confirmar</button></div>
+              </div>
+              
+              
+                </form>
+              
+            </div>
+          </div>
+    </div>
+</div>

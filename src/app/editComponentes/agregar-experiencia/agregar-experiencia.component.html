@@ -1,0 +1,31 @@
+<div class="row mt-1">
+    <div class="col-lg-4 offset-lg-4">
+        <div class="card bg-secondary mb-3" style="max-width: 25rem;">
+            <div class="card-header text-center">Agregar Experiencia </div>
+            <div class="card-body">
+                <form [formGroup]="form" (ngSubmit)="confirmar()" >
+              <input formControlName="name" type="text" class="form-control" placeholder="Ingrese nombre">
+              <span *ngIf="form.get('name')?.hasError('required') && form.get('name')?.touched ">
+El campo nombre es obligatorio!!
+              </span>
+              <input formControlName="descripcion" type="text" class="form-control mt-2" placeholder="Ingrese descripcion">
+              <span *ngIf="form.get('descripcion')?.hasError('required') && form.get('descripcion')?.touched ">
+                El campo descripcion es obligatorio!!
+                              </span>
+              <input formControlName="img" type="text" class="form-control mt-2" placeholder="Ingrese imagen">
+              <span *ngIf="form.get('img')?.hasError('required') && form.get('img')?.touched ">
+                El campo imagen es obligatorio!!
+                              </span>
+              
+              <div class="row text-center mt-3">
+                <div class="col-lg-6"><button type="button" routerLink="/" class="btn btn-link">Cancelar</button></div>
+                <div class="col-lg-6"><button [disabled]="form.invalid" type="submit" class="btn btn-success">Confirmar</button></div>
+              </div>
+              
+              
+                </form>
+              
+            </div>
+          </div>
+    </div>
+</div>

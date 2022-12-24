@@ -1,0 +1,47 @@
+ 
+<div class="container">
+   
+    <div class="title">
+        <div class="row">
+            <div class="col-8"> <h1>Experiencia </h1></div>
+            <div class="col-4"><button type="button" class="btn btn-primary" routerLink="/agregarExperiencia">Agregar Experiencia</button></div>
+        </div>
+           
+            
+        </div>
+            <div class="bg p-5" ></div>
+            <div *ngFor="let experiencia of experiencias" class="card"   >
+                  
+                  
+            
+              
+                <div class="card-body">
+        <div class="card-title">
+            <div class="container text-center">
+                <div class="row">
+                  <div class="col-8">
+                    <h5>{{experiencia.nombre}}</h5>
+                  </div>
+                  <div class="col-2">
+                    <button [routerLink] ="['/editarExperiencia' , experiencia.id]"   type="button" class="btn btn-outline-info btn-sm" >Modificar Experiencia</button>
+                  </div>
+                  <div class="col-2">
+                    <button type="button" class="btn btn-outline-danger btn-sm ">Eliminar Experiencia</button>
+                  </div>
+                </div>
+              </div>
+            
+            
+            
+        </div>
+                 
+                  <p class="card-text">{{experiencia.descripcion }} </p>
+                  <img src={{experiencia.img}}  alt="">
+                 
+                  
+    
+                </div>
+              </div>
+        
+        </div>
+    <div class="bg p-5" ></div>   -->
