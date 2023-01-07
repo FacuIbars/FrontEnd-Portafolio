@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="title">
+      <div class="row">
+        <div class="col-8"><h1>Soft Skill</h1></div>
+        <div class="col-4">
+          <button *ngIf="modoEdit" type="button" class="btn btn-primary" (click)="openDialog()">
+            Agregar Educacion
+          </button>
+        </div>
+        <h2 class="col-10 text-center mt-4" *ngIf="habilidadesBlandas.length == 0">
+          No hay informacion para mostrar
+        </h2>
+      </div>
+    </div>
+    <div class="bg p-5"></div>
+    <div *ngFor="let habilidadBlanda of habilidadesBlandas" class="card">
+      <div class="card-body">
+        <div class="card-title">
+          <div class="container text-center">
+            <div class="row">
+              <div class="col-10">
+                <h5>{{ habilidadBlanda.habilidad }}</h5>
+              </div>
+              <div *ngIf="modoEdit" class="col-1">
+                <button
+                  (click)="openDialog(habilidadBlanda.id)"
+                  type="button"
+                  class="btn btn-outline-info btn"
+                >
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+              </div>
+              <div *ngIf="modoEdit" class="col-1">
+                <button
+                  (click)="eliminarhabilidadBlanda(habilidadBlanda.id!)"
+                  type="button"
+                  class="btn btn-outline-danger btn"
+                >
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+  
+          <div class="progress mt-3">
+            <div
+              class="progress-bar progress-bar-striped progress-bar-animated"
+              role="progressbar"
+              aria-valuenow="80"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              [style.width.%]="habilidadBlanda.skill"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg p-5"></div>
+  

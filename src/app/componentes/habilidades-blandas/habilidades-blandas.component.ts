@@ -1,22 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AgregarConocimientoComponent } from 'src/app/editComponentes/agregar-conocimiento/agregar-conocimiento.component';
-import { Conocimiento } from 'src/app/models/conocimiento';
+import { AgregarHabilidadBlandaComponent } from 'src/app/editComponentes/agregar-habilidades-blanda/agregar-habilidades-blanda.component';
+//import { AgregarhabilidadesBlandaComponent } from 'src/app/editComponentes/agregar-habilidadesBlanda/agregar-habilidadesBlanda.component';
+import { habilidadBlanda } from 'src/app/models/habilidadBlanda';
 import { AppService } from 'src/app/service/app.service';
-import { ConocimientoService } from 'src/app/service/conocimiento.service';
+import { HabilidadBlandaService } from 'src/app/service/habilidad-blanda.service';
+
 
 @Component({
-  selector: 'app-conocimiento',
-  templateUrl: './conocimiento.component.html',
-  styleUrls: ['./conocimiento.component.css'],
+  selector: 'app-habilidadBlanda',
+  templateUrl: './habilidades-blandas.component.html',
+  styleUrls: ['./habilidades-blandas.component.css'],
 })
-export class ConocimientoComponent implements OnInit {
+export class HabilidadesBlandasComponent implements OnInit {
   operacion: string = 'Agregar ';
-  conocimientos: Conocimiento[] = [];
+  habilidadesBlandas: habilidadBlanda[] = [];
   modoEdit: any;
   constructor(
-    private Api: ConocimientoService,
+    private Api: HabilidadBlandaService,
     private AppService: AppService,
     public dialog: MatDialog,
     private mensaje: MatSnackBar
@@ -31,13 +33,13 @@ export class ConocimientoComponent implements OnInit {
     this.cargar();
   }
   cargar(): void {
-    this.Api.listaConocimiento().subscribe(
-      (data) => (this.conocimientos = data)
+    this.Api.listaHabilidadBlanda().subscribe(
+      (data) => (this.habilidadesBlandas = data)
     );
   }
 
   openDialog(id?: number): void {
-    const dialogRef = this.dialog.open(AgregarConocimientoComponent, {
+    const dialogRef = this.dialog.open(AgregarHabilidadBlandaComponent, {
       width: '550px',
       disableClose: true,
       data: { id: id },
@@ -52,8 +54,8 @@ export class ConocimientoComponent implements OnInit {
     });
   }
 
-  eliminarConocimiento(id: number): void {
-    this.Api.deleteConocimiento(id).subscribe(() => {
+  eliminarhabilidadBlanda(id: number): void {
+    this.Api.deleteHabilidadBlanda(id).subscribe(() => {
       this.cargar();
       this.mensajeExito();
     });

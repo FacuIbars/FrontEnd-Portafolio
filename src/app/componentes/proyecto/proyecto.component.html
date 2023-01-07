@@ -2,7 +2,11 @@
    
 <div class="title">
     <h1>Proyectos </h1>
-    <button type="button" class="btn btn-primary" routerLink="/agregarProyecto">Agregar Proyecto</button>
+    <div class="col-4">
+      <button *ngIf="modoEdit" type="button" class="btn btn-primary" (click)="openDialog()">
+        Agregar Educacion
+      </button>
+    </div>
 </div>
     <div class="bg p-5" ></div>
     <div *ngFor="let proyecto of proyectos" class="card"   >
@@ -14,14 +18,26 @@
 <div class="card-title">
     <div class="container text-center">
         <div class="row">
-          <div class="col-8">
+          <div class="col-10">
             <h5>{{proyecto.nombre}}</h5>
           </div>
-          <div class="col-2">
-            <button [routerLink] ="['/editarProyecto' , proyecto.id]"   type="button" class="btn btn-outline-info btn-sm" >Modificar Proyecto</button>
+          <div *ngIf="modoEdit" class="col-1">
+            <button
+              (click)="openDialog(proyecto.id)"
+              type="button"
+              class="btn btn-outline-info btn"
+            >
+              <i class="bi bi-pencil-square"></i>
+            </button>
           </div>
-          <div class="col-2">
-            <button type="button" class="btn btn-outline-danger btn-sm ">Eliminar Proyecto</button>
+          <div *ngIf="modoEdit" class="col-1">
+            <button
+              (click)="eliminarProyecto(proyecto.id!)"
+              type="button"
+              class="btn btn-outline-danger btn"
+            >
+              <i class="bi bi-trash-fill"></i>
+            </button>
           </div>
         </div>
       </div>

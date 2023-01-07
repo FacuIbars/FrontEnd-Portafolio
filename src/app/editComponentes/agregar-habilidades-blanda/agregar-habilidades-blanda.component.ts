@@ -1,30 +1,29 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Conocimiento } from 'src/app/models/conocimiento';
-
-import { ConocimientoService } from 'src/app/service/conocimiento.service';
+import { habilidadBlanda } from 'src/app/models/habilidadBlanda';
+import { HabilidadBlandaService } from 'src/app/service/habilidad-blanda.service';
 
 @Component({
-  selector: 'app-agregar-conocimiento',
-  templateUrl: './agregar-conocimiento.component.html',
-  styleUrls: ['./agregar-conocimiento.component.css'],
+  selector: 'app-agregar-habilidades-blanda',
+  templateUrl: './agregar-habilidades-blanda.component.html',
+  styleUrls: ['./agregar-habilidades-blanda.component.css'],
 })
-export class AgregarConocimientoComponent implements OnInit {
+export class AgregarHabilidadBlandaComponent {
   Operacion: String = 'Agregar ';
   loading: boolean = false;
   id: number | undefined;
   form: FormGroup;
   constructor(
     private fb: FormBuilder,
-    private AppService: ConocimientoService,
-    public dialogRef: MatDialogRef<AgregarConocimientoComponent>,
+    private AppService: HabilidadBlandaService,
+    public dialogRef: MatDialogRef<AgregarHabilidadBlandaComponent>,
     private mensaje: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.form = this.fb.group({
-      lenguaje: ['', Validators.required],
+      habilidad: ['', Validators.required],
       skill: ['', Validators.required],
     });
     this.id = data.id;
@@ -36,37 +35,37 @@ export class AgregarConocimientoComponent implements OnInit {
   esEditar(id: number | undefined) {
     if (id !== undefined) {
       this.Operacion = 'Editar ';
-      this.getConocimiento(id);
-      console.log(this.Operacion)
+      this.gethabilidadBlanda(id);
+      console.log(this.Operacion);
     }
   }
 
   cancelar() {
     this.dialogRef.close(false);
   }
-  getConocimiento(id: number) {
-    this.AppService.buscarConocimiento(id).subscribe((data) => {
+  gethabilidadBlanda(id: number) {
+    this.AppService.buscarHabilidadBlanda(id).subscribe((data) => {
       this.form.patchValue({
-        lenguaje: data.lenguaje,
+        habilidad: data.habilidad,
         skill: data.skill,
       });
     });
   }
   confirmar() {
-    const Conocimiento: Conocimiento = {
-      lenguaje: this.form.value.lenguaje,
+    const habilidadBlanda: habilidadBlanda = {
+      habilidad: this.form.value.habilidad,
       skill: this.form.value.skill,
     };
     this.loading = true;
 
     if (this.id == undefined) {
       //Agregar
-      this.AppService.crearConocimiento(Conocimiento).subscribe(() => {
+      this.AppService.crearHabilidadBlanda(habilidadBlanda).subscribe(() => {
         this.loading = false;
       });
     } else {
       //Editar
-      this.AppService.updateConocimiento(Conocimiento, this.id).subscribe(
+      this.AppService.updateHabilidadBlanda(habilidadBlanda, this.id).subscribe(
         (data) => {}
       );
     }

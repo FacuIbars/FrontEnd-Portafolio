@@ -1,45 +1,51 @@
 <div class="container">
-   
-<div class="title">
+  <div class="title">
     <div class="row">
-        <div class="col-8"> <h1>Educacion </h1></div>
-        <div class="col-4"><button type="button" class="btn btn-primary" routerLink="/agregarEducacion">Agregar Educacion</button></div>
+      <div class="col-8"><h1>Educacion</h1></div>
+      <div class="col-4">
+        <button *ngIf="modoEdit" type="button" class="btn btn-primary" (click)="openDialog()">
+          Agregar Educacion
+        </button>
+      </div>
+      <h2 class="col-10 text-center mt-4" *ngIf="educaciones.length == 0">
+        No hay informacion para mostrar
+      </h2>
     </div>
-       
-        
-    </div>
-        <div class="bg p-5" ></div>
-        <div *ngFor="let educacion of educaciones" class="card"   >
-              
-              
-        
-          
-            <div class="card-body">
-    <div class="card-title">
+  </div>
+  <div class="bg p-5"></div>
+  <div *ngFor="let educacion of educaciones" class="card">
+    <div class="card-body">
+      <div class="card-title">
         <div class="container text-center">
-            <div class="row">
-              <div class="col-8">
-                <h5>{{educacion.nombre}}</h5>
-              </div>
-              <div class="col-2">
-                <button [routerLink] ="['/editarEducacion' , educacion.id]"   type="button" class="btn btn-outline-info btn-sm" >Modificar Educacion</button>
-              </div>
-              <div class="col-2">
-                <button type="button" class="btn btn-outline-danger btn-sm ">Eliminar Educacion</button>
-              </div>
+          <div class="row">
+            <div class="col-10">
+              <h5>{{ educacion.nombre }}</h5>
+            </div>
+            <div *ngIf="modoEdit" class="col-1">
+              <button
+                (click)="openDialog(educacion.id)"
+                type="button"
+                class="btn btn-outline-info btn">
+                <i class="bi bi-pencil-square"></i>
+              </button>
+            </div>
+            <div *ngIf="modoEdit" class="col-1">
+              <button
+                (click)="eliminarEducacion(educacion.id!)"
+                type="button"
+                class="btn btn-outline-danger btn">
+                <i class="bi bi-trash-fill"></i>
+              </button>
             </div>
           </div>
-        
-        
-        
-    </div>
-             
-              <p class="card-text">{{educacion.info }} </p>
-              <div>{{educacion.img}} </div>
-              <h4>{{educacion.fecha}} </h4>
+        </div>
+      </div>
 
-            </div>
-          </div>
-    
+      <p class="card-text">{{ educacion.info }}</p>
+      <div>{{ educacion.img }}</div>
+      <h4>{{ educacion.fecha | date : "dd/MM/yyyy" }}</h4>
     </div>
-    <div class="bg p-5" ></div>
+  </div>
+</div>
+
+<div class="bg p-5"></div>

@@ -1,47 +1,59 @@
 <div class="container">
-   
-    <div class="title">
-        <div class="row">
-            <div class="col-8"> <h1>Conocimiento </h1></div>
-            <div class="col-4"><button type="button" class="btn btn-primary" routerLink="/agregarConocimiento">Agregar Conocimiento</button></div>
-   
+  <div class="title">
+    <div class="row">
+      <div class="col-8"><h1>Hard Skill</h1></div>
+      <div class="col-4">
+        <button *ngIf="modoEdit" type="button" class="btn btn-primary" (click)="openDialog()">
+          Agregar Educacion
+        </button>
+      </div>
+      <h2 class="col-10 text-center mt-4" *ngIf="conocimientos.length == 0">
+        No hay informacion para mostrar
+      </h2>
+    </div>
+  </div>
+  <div class="bg p-5"></div>
+  <div *ngFor="let conocimiento of conocimientos" class="card">
+    <div class="card-body">
+      <div class="card-title">
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-10">
+              <h5>{{ conocimiento.lenguaje }}</h5>
+            </div>
+            <div *ngIf="modoEdit" class="col-1">
+              <button
+                (click)="openDialog(conocimiento.id)"
+                type="button"
+                class="btn btn-outline-info btn"
+              >
+                <i class="bi bi-pencil-square"></i>
+              </button>
+            </div>
+            <div *ngIf="modoEdit" class="col-1">
+              <button
+                (click)="eliminarConocimiento(conocimiento.id!)"
+                type="button"
+                class="btn btn-outline-danger btn"
+              >
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </div>
+          </div>
         </div>
-           
-            
+
+        <div class="progress mt-3">
+          <div
+            class="progress-bar progress-bar-striped progress-bar-animated"
+            role="progressbar"
+            aria-valuenow="80"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            [style.width.%]="conocimiento.skill"
+          ></div>
         </div>
-            <div class="bg p-5" ></div>
-            <div *ngFor="let conocimiento of conocimientos" class="card"   >
-                  
-                  
-            
-              
-                <div class="card-body">
-        <div class="card-title">
-            <div class="container text-center">
-                <div class="row">
-                  <div class="col-6">
-                    <h5>{{conocimiento.lenguaje}}</h5>
-                  </div>
-                  <div class="col-3">
-                    <button [routerLink] ="['/editarConocimiento' , conocimiento.id]"   type="button" class="btn btn-outline-info btn-sm" >Modificar Conocimiento</button>
-                  </div>
-                  <div class="col-3">
-                    <button type="button" class="btn btn-outline-danger btn-sm ">Eliminar Conocimiento</button>
-                  </div>
-                </div>
-              </div>
-            
-              <div class="progress mt-3">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" [style.width.%]="conocimiento.skill" ></div>
-              </div>
-            
-        </div>
-                 
-                 
-    
-                </div>
-              </div>
-        
-        </div>
-        <div class="bg p-5" ></div>
-    
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg p-5"></div>
