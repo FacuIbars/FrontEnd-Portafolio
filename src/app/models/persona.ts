@@ -3,7 +3,7 @@ export interface Persona {
     
 sobreMi:string;
 foto:string;
-nombrePerfil:string;
-
+nombre:string;
+portada:string;
     
 }

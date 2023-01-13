@@ -1,10 +1,36 @@
 <app-navbar></app-navbar>
 
 
-<div class="text-center"><img  src="https://media.licdn.com/dms/image/C4D16AQGTOiTkUxzN4w/profile-displaybackgroundimage-shrink_350_1400/0/1668616274510?e=1677110400&v=beta&t=NIdxtEPAtdHLGW03o7MqpX_c0Zw8KILwT2humF6Qb-Q" alt="">
-</div>
 
 
+<section class="row d-flex justify-content-center align-items-center ms-5 me-5  text-center " >
+
+    
+        
+        <div *ngFor="let perfil of persona" class="row justify-content-center align-items-center">
+           
+            <div  ><img width=100% height=100%   src={{perfil.portada}} >
+            </div>
+            
+            <div class="bg p-2" ></div>
+            <div class="col-md-3 col-lg-3 pb-2">
+                <img class="img-fluid rounded-circle img-thumbnail mt-3 border-1"src={{perfil.foto}} id="foto"
+                    alt="">
+                    <button *ngIf="modoEdit" type="button" class="btn btn-primary" (click)="openDialog(perfil.id!)">
+                        Editar Perfil
+                      </button>   
+            </div>
+            <div class="col-md-9 col-lg-9">
+                
+                <h1 >{{perfil.nombre}}</h1>
+                <h5 class="mt-4" >{{perfil.sobreMi}}</h5>
+                
+            </div>
+        </div>
+    
+
+    
+</section>
 
 <div class="bg p-5" ></div>
 

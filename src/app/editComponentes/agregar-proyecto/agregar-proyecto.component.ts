@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Proyecto } from 'src/app/models/proyecto';
-import { AppService } from 'src/app/service/app.service';
 import { ProyectoService } from 'src/app/service/proyecto.service';
 
 @Component({
@@ -20,10 +19,10 @@ export class AgregarProyectoComponent implements OnInit {
     private mensaje: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public data: any) {
     this.form = this.fb.group({
-      name: ['', Validators.required],
-      description: ['', Validators.required],
-      code: ['', Validators.required],
-      result: ['', Validators.required],
+      name: ['', [Validators.required, Validators.maxLength(250)]],
+      descripcion: ['', [Validators.required, Validators.maxLength(750)]],
+      codigo: ['', [Validators.required, Validators.maxLength(250)]],
+      resultado: ['', [Validators.required, Validators.maxLength(250)]],
     });this.id = data.id;
    }
 
@@ -43,8 +42,8 @@ getProyecto(id: number) {
     this.form.patchValue({
       name: data.nombre,
       descripcion: data.descripcion,
-      code: data.codigo,
-      result:data.resultado
+      codigo: data.codigo,
+      resultado:data.resultado
       
     }) 
     
@@ -64,16 +63,16 @@ getProyecto(id: number) {
     
     if(this.id == undefined){
       //Agregar
-      this.AppService.crearProyecto(Proyecto).subscribe(()=>{this.loading= false; 
-        
+      this.AppService.crearProyecto(Proyecto).subscribe(()=>{
+       this.loading= false; 
         
       } )
     }else{
       //Editar
       this.AppService.updateProyecto(Proyecto, this.id).subscribe(data => {
-        
       })
     }
+    console.log(Proyecto)
     this.mensajeExito();
     this.dialogRef.close(true);
       
@@ -82,8 +81,8 @@ getProyecto(id: number) {
    }
 
    mensajeExito():void {
-    this.mensaje.open('Operación exitosa', '', {
-      duration: 2000
+    this.mensaje.open('Operación exitosa, por favor espere.', '', {
+      duration: 4000
     })
   
    } 

@@ -4,7 +4,7 @@
   <mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner>
 </div>
 
-<form [formGroup]="form" (ngSubmit)="confirmar()">
+<form class="my-3" [formGroup]="form" (ngSubmit)="confirmar()" enctype="multipart/form-data">
   <input
     formControlName="name"
     type="text"
@@ -15,6 +15,9 @@
     *ngIf="form.get('name')?.hasError('required') && form.get('name')?.touched"
   >
     El campo nombre es obligatorio!!
+  </span>
+  <span *ngIf="form.get('name')?.hasError('maxlength')">
+    Excedio el numero maximo de caracteres!!
   </span>
   <input
     formControlName="fecha"
@@ -30,17 +33,10 @@
     El campo fecha es obligatorio!!
   </span>
 
-  <input
-    formControlName="img"
-    type="text"
-    class="form-control mt-2"
-    placeholder="Ingrese imagen"
-    
-  />
-  <span
-    *ngIf="form.get('img')?.hasError('required') && form.get('img')?.touched"
-  >
-    El campo imagen es obligatorio!!
+  <input formControlName="img" type="text" class="form-control mt-2" placeholder="Ingrese link de imagen(opcional)"/>
+  
+  <span *ngIf="form.get('img')?.hasError('maxlength')">
+    Excedio el numero maximo de caracteres!!
   </span>
   <input
     formControlName="info"
@@ -53,17 +49,15 @@
   >
     El campo informacion es obligatorio!!
   </span>
-  <mat-dialog-actions align="end">
-    <button
-      class="btn btn-secondary"
-      type="button"
-      (click)="cancelar()"
-      mat-button
-    >
+  <span *ngIf="form.get('info')?.hasError('maxlength')">
+    Excedio el numero maximo de caracteres!!
+  </span>
+  <mat-dialog-actions class="justify-content-around">
+    <button class="btn btn-dark" type="button" (click)="cancelar()" mat-button>
       Cancelar
     </button>
     <button
-      class="btn btn-success"
+      class="btn btn-outline-primary"
       [disabled]="form.invalid"
       type="submit"
       mat-button

@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
           this.modoEdit = true;      
       }
     };
+    
     IniciarSesion():void {
     
       const dialogRef = this.dialog.open(LoginComponent, {

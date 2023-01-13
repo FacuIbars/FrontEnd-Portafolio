@@ -42,7 +42,7 @@ export class EducacionComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.cargar();
+        setTimeout(() => {this.cargar();}, 4000)
       }
     });
   }

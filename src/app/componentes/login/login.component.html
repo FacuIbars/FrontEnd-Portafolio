@@ -1,20 +1,50 @@
-<div class="container py-5">
-<form class="mx-auto" style="max-width: 25rem;" #form="ngForm" (ngSubmit)="login(form)">
-<h1 class="mb-5 text-center" > Inicio de sesión </h1>
-<div class="mb-3">
-    <label for="nombreUsuario"> Nombre de Usuario</label>
-    <input id="nombreUsuario" type="text" name="nombreUsuario" class="form-control" [(ngModel)]="creds.nombreUsuario" >
-</div>
+<div class="container py-3">
+  <form
+    class="mx-auto"
+    style="max-width: 25rem"
+    #form="ngForm"
+    (ngSubmit)="login(form)"
+  >
+    <h1 class="mb-3 text-center">Inicio de sesión</h1>
+    <img
+      src="https://firebasestorage.googleapis.com/v0/b/storage-62811.appspot.com/o/user_login_el_barba-01.png?alt=media&token=7ddcc530-1bf8-47a3-9bc8-94348c134647"
+      alt=""
+      class="rounded mx-auto d-block mb-3"
+      width="150"
+      height="150"
+    />
+    <div class="mb-3">
+      <label for="nombreUsuario"> Nombre de Usuario</label>
+      <input
+        id="nombreUsuario"
+        type="text"
+        name="nombreUsuario"
+        class="form-control"
+        [(ngModel)]="creds.nombreUsuario"
+      />
+    </div>
 
-<div class="mb-3">
-    <label for="password"> Contraseña</label>
-    <input id="password" type="password" name="password" class="form-control" [(ngModel)]="creds.password" >
-</div>
+    <div class="mb-3">
+      <label for="password"> Contraseña</label>
+      <input
+        id="password"
+        type="password"
+        name="password"
+        class="form-control"
+        [(ngModel)]="creds.password"
+      />
+    </div>
 
-<div class="d-grid">
-    <button class="btn btn-lg btn-primary">Aceptar</button>
-    <button mat-button mat-dialog-close cdkFocusInitial class="btn btn-lg btn-primary">Cancelar</button>
-</div>
-</form>
-
+    <div class="d-grid">
+      <button class="btn btn-lg btn-primary mt-2">Aceptar</button>
+      <button
+        mat-button
+        mat-dialog-close
+        cdkFocusInitial
+        class="btn btn-lg btn-primary mt-4"
+      >
+        Cancelar
+      </button>
+    </div>
+  </form>
 </div>

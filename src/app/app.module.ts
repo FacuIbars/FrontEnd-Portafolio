@@ -17,12 +17,8 @@ import { ConocimientoComponent } from './componentes/conocimiento/conocimiento.c
 import { ProyectoComponent } from './componentes/proyecto/proyecto.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
-import { EditProyectoComponent } from './editComponentes/edit-proyecto/edit-proyecto.component';
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
-
 import { LoginComponent } from './componentes/login/login.component';
-
-
 import { CommonModule } from '@angular/common';
 
 
@@ -41,6 +37,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HabilidadesBlandasComponent } from './componentes/habilidades-blandas/habilidades-blandas.component';
 import { AgregarHabilidadBlandaComponent } from './editComponentes/agregar-habilidades-blanda/agregar-habilidades-blanda.component';
+import { EditInicioComponent } from './editComponentes/edit-inicio/edit-inicio.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +47,6 @@ import { AgregarHabilidadBlandaComponent } from './editComponentes/agregar-habil
     ProyectoComponent,
     EducacionComponent,
     NavbarComponent,
-    EditProyectoComponent,
     AgregarProyectoComponent,
     AgregarEducacionComponent,
     AgregarExperienciaComponent,
@@ -58,7 +54,8 @@ import { AgregarHabilidadBlandaComponent } from './editComponentes/agregar-habil
     InicioComponent,
     LoginComponent,
     HabilidadesBlandasComponent,
-    AgregarHabilidadBlandaComponent
+    AgregarHabilidadBlandaComponent,
+    EditInicioComponent
   ],
   imports: [
     
@@ -67,9 +64,7 @@ import { AgregarHabilidadBlandaComponent } from './editComponentes/agregar-habil
     HttpClientModule,
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
     CommonModule,
     MatDatepickerModule,
     MatFormFieldModule,
@@ -78,6 +73,9 @@ import { AgregarHabilidadBlandaComponent } from './editComponentes/agregar-habil
     MatIconModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
+  
+   
+
     
   ],
   providers: [  { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi:true} ],

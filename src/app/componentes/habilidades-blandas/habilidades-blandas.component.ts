@@ -49,7 +49,7 @@ export class HabilidadesBlandasComponent implements OnInit {
     console.log(id);
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.cargar();
+        setTimeout(() => {this.cargar();}, 4000)
       }
     });
   }

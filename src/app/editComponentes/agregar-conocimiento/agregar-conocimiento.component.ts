@@ -24,7 +24,7 @@ export class AgregarConocimientoComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.form = this.fb.group({
-      lenguaje: ['', Validators.required],
+      lenguaje: [[Validators.required, Validators.maxLength(250)]],
       skill: ['', Validators.required],
     });
     this.id = data.id;
@@ -71,12 +71,13 @@ export class AgregarConocimientoComponent implements OnInit {
       );
     }
     this.mensajeExito();
-    this.dialogRef.close(true);
+    this.dialogRef.close();
   }
 
-  mensajeExito(): void {
-    this.mensaje.open('Operación exitosa', '', {
-      duration: 2000,
-    });
-  }
+  mensajeExito():void {
+    this.mensaje.open('Operación exitosa, por favor espere.', '', {
+      duration: 4000
+    })
+  
+   } 
 }

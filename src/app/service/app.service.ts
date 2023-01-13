@@ -1,26 +1,33 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {  map, Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { Conocimiento } from '../models/conocimiento';
+import { Persona } from '../models/persona';
 import { credenciales } from '../models/credenciales';
-import { Educacion } from '../models/educacion';
-import { Experiencia } from '../models/experiencia';
-import { Proyecto } from '../models/proyecto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
-
-
+  private endpoint='http://localhost:8080/';
+  private GetURL= this.endpoint + "ver/"
+  private PutURL= this.endpoint + "cambiar/";
 
   constructor(private Httpclient: HttpClient) { 
     
   }
   
 
-
+//Persona
+public listaPersona(): Observable<Persona[] >{
+  return this.Httpclient.get<Persona[]>(this.GetURL + "persona") ;
+}
+public updatePersona(Persona: Persona, id:number): Observable <any>{
+  return this.Httpclient.put<any>(this.PutURL + `${id}/persona`, Persona)
+}
+public buscarPersona(id:number): Observable<Persona>{
+  return this.Httpclient.get<Persona>(this.GetURL + `persona/${id}`) ;
+}
+//Login
 login(creds:credenciales){
   return this.Httpclient.post('http://localhost:8080/auth/login', creds, {
     observe:'response'
@@ -33,8 +40,6 @@ login(creds:credenciales){
 
   }))
 }
-
-
 getToken(){
   return localStorage.getItem('token') ;
 }

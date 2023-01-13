@@ -1,18 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+
 import { Conocimiento } from '../models/conocimiento';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConocimientoService {
-  private endPoint=environment.endPoint;
-  private GetURL= this.endPoint + "ver/"
-  private PostURL = this.endPoint + "new/"
-  private PutURL= this.endPoint + "cambiar/";
-  private DeleteURL= this.endPoint + "delete/"
+  private endpoint='http://localhost:8080/';
+  private GetURL= this.endpoint + "ver/"
+  private PostURL = this.endpoint + "new/"
+  private PutURL= this.endpoint + "cambiar/";
+  private DeleteURL= this.endpoint + "delete/"
   constructor(private Httpclient: HttpClient) { }
  
   public listaConocimiento(): Observable<Conocimiento[] >{

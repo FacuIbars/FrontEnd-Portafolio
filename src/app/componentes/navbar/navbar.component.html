@@ -1,14 +1,17 @@
 
   
   
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" >Mi Portafolio</a>
+      <h1  >Mi Portafolio</h1>
+      <img src="https://firebasestorage.googleapis.com/v0/b/storage-62811.appspot.com/o/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(17).png?alt=media&token=c6bd54b2-a0a6-4716-a878-60bc1e5c0c6f"
+      class="img-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <li  class="nav-item dropdown" >
+      <div class="float-end"><div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <li  class="nav-item dropdown 
+        " >
           <a class="nav-link  dropdown-toggle"   role="button" data-bs-toggle="dropdown" >Mis Redes Sociales
           </a>
           <ul  class="dropdown-menu">
@@ -22,10 +25,11 @@
 
           </ul>
         </li>
-        <Button class="btn btn-lg btn-primary" *ngIf="!modoEdit" (click)="IniciarSesion()" >Iniciar Sesión </Button>
+        <Button class="btn btn-lg btn-primary mx-4" *ngIf="!modoEdit" (click)="IniciarSesion()" >Iniciar Sesión </Button>
         
-        <Button class="btn btn-lg btn-primary" *ngIf="modoEdit"  (click)="cerrarSesion()">Cerrar Sesión</Button>
+        <Button class="btn btn-lg btn-primary mx-4 " *ngIf="modoEdit"  (click)="cerrarSesion()">Cerrar Sesión</Button>
         
-      </div>
+      </div></div>
+      
     </div>
   </nav>

@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Educacion } from 'src/app/models/educacion';
-
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EducacionService } from 'src/app/service/educacion.service';
@@ -16,6 +15,7 @@ export class AgregarEducacionComponent implements OnInit {
   form: FormGroup;
   loading: boolean = false;
   id: number | undefined;
+  
   constructor(
     private fb: FormBuilder,
     private AppService: EducacionService,
@@ -24,10 +24,10 @@ export class AgregarEducacionComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.form = this.fb.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required, Validators.maxLength(250)]],
       fecha: ['', Validators.required],
-      img: ['', Validators.required],
-      info: ['', Validators.required],
+      img: ['', Validators.maxLength(500)],
+      info: ['', [Validators.required, Validators.maxLength(750)]],
     });
     this.id = data.id;
   }
@@ -39,7 +39,7 @@ export class AgregarEducacionComponent implements OnInit {
     if (id !== undefined) {
       this.Operacion = 'Editar ';
       this.getEducacion(id);
-      console.log(this.Operacion)
+      console.log(this.Operacion);
     }
   }
   cancelar() {
@@ -75,13 +75,16 @@ export class AgregarEducacionComponent implements OnInit {
         (data) => {}
       );
     }
+    console.log(educacion)
     this.mensajeExito();
     this.dialogRef.close(true);
+   
   }
 
-  mensajeExito(): void {
-    this.mensaje.open('Operación exitosa', '', {
-      duration: 2000,
-    });
-  }
+  mensajeExito():void {
+    this.mensaje.open('Operación exitosa, por favor espere.', '', {
+      duration: 4000
+    })
+  
+   } 
 }

@@ -23,7 +23,7 @@ export class AgregarHabilidadBlandaComponent {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.form = this.fb.group({
-      habilidad: ['', Validators.required],
+      habilidad: ['', [Validators.required, Validators.maxLength(250)]],
       skill: ['', Validators.required],
     });
     this.id = data.id;
@@ -73,9 +73,10 @@ export class AgregarHabilidadBlandaComponent {
     this.dialogRef.close(true);
   }
 
-  mensajeExito(): void {
-    this.mensaje.open('Operación exitosa', '', {
-      duration: 2000,
-    });
-  }
+  mensajeExito():void {
+    this.mensaje.open('Operación exitosa, por favor espere.', '', {
+      duration: 4000
+    })
+  
+   } 
 }

@@ -1,70 +1,71 @@
 <div class="container">
-  <h2 class="card-header text-center">{{ Operacion }} Proyecto</h2>
+  <h2 class="card-header text-center">Editar Perfil</h2>
   <div class="card-body my-3"></div>
   <form [formGroup]="form" (ngSubmit)="confirmar()">
     <input
-      formControlName="name"
+      formControlName="nombre"
       type="text"
       class="form-control"
-      placeholder="Ingrese nombre"
+      placeholder="Ingrese nombre "
     />
     <span
       *ngIf="
-        form.get('name')?.hasError('required') && form.get('name')?.touched
+        form.get('nombre')?.hasError('required') && form.get('nombre')?.touched
       "
     >
       El campo nombre es obligatorio!!
     </span>
-    <span *ngIf="form.get('name')?.hasError('maxlength')">
+    <span *ngIf="form.get('nombre')?.hasError('maxlength')">
       Excedio el numero maximo de caracteres!!
     </span>
     <input
-      formControlName="descripcion"
+      formControlName="sobreMi"
       type="text"
       class="form-control mt-2"
-      placeholder="Ingrese descripcion"
+      placeholder="Ingrese descripcion sobre mi"
     />
     <span
       *ngIf="
-        form.get('descripcion')?.hasError('required') &&
-        form.get('descripcion')?.touched
+        form.get('sobreMi')?.hasError('required') &&
+        form.get('sobreMi')?.touched
       "
     >
-      El campo descripcion es obligatorio!!
+      El campo descripcion sobre mi es obligatorio!!
     </span>
-    <span *ngIf="form.get('descripcion')?.hasError('maxlength')">
+    <span *ngIf="form.get('sobreMi')?.hasError('maxlength')">
       Excedio el numero maximo de caracteres!!
     </span>
     <input
-      formControlName="codigo"
+      formControlName="portada"
       type="text"
       class="form-control mt-2"
-      placeholder="Ingrese codigo"
+      placeholder="Ingrese foto de portada"
     />
     <span
       *ngIf="
-        form.get('codigo')?.hasError('required') && form.get('codigo')?.touched
+        form.get('portada')?.hasError('required') &&
+        form.get('portada')?.touched
       "
     >
-      El campo codigo es obligatorio!!
+      El campo foto de portada es obligatorio!!
     </span>
-    <span *ngIf="form.get('codigo')?.hasError('maxlength')">
+    <span *ngIf="form.get('portada')?.hasError('maxlength')">
       Excedio el numero maximo de caracteres!!
     </span>
     <input
-      formControlName="resultado"
+      formControlName="foto"
       type="text"
       class="form-control mt-2"
-      placeholder="Ingrese resultado"
+      placeholder="Ingrese foto de perfil"
     />
     <span
       *ngIf="
-        form.get('resultado')?.hasError('required') && form.get('resultado')?.touched
+        form.get('foto')?.hasError('required') && form.get('foto')?.touched
       "
     >
-      El campo resultado es obligatorio!!
+      El campo foto de perfil es obligatorio!!
     </span>
-    <span *ngIf="form.get('resultado')?.hasError('maxlength')">
+    <span *ngIf="form.get('foto')?.hasError('maxlength')">
       Excedio el numero maximo de caracteres!!
     </span>
     <mat-dialog-actions class="justify-content-around">
@@ -76,6 +77,7 @@
       >
         Cancelar
       </button>
+
       <button
         class="btn btn-outline-light"
         [disabled]="form.invalid"

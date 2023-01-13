@@ -1,10 +1,15 @@
 <div class="container">
   <div class="title">
     <div class="row">
-      <div class="col-8"><h1>Hard Skill</h1></div>
+      <div class="col-8 text-center"><h1>Hard Skill</h1></div>
       <div class="col-4">
-        <button *ngIf="modoEdit" type="button" class="btn btn-primary" (click)="openDialog()">
-          Agregar Educacion
+        <button
+          *ngIf="modoEdit"
+          type="button"
+          class="btn btn-primary"
+          (click)="openDialog()"
+        >
+          Agregar Hard Skill
         </button>
       </div>
       <h2 class="col-10 text-center mt-4" *ngIf="conocimientos.length == 0">
@@ -13,13 +18,13 @@
     </div>
   </div>
   <div class="bg p-5"></div>
-  <div *ngFor="let conocimiento of conocimientos" class="card">
+  <div *ngFor="let conocimiento of conocimientos" class="mt-3">
     <div class="card-body">
       <div class="card-title">
         <div class="container text-center">
           <div class="row">
             <div class="col-10">
-              <h5>{{ conocimiento.lenguaje }}</h5>
+              <h3>{{ conocimiento.lenguaje }}</h3>
             </div>
             <div *ngIf="modoEdit" class="col-1">
               <button

@@ -9,28 +9,32 @@ import { ExperienciaService } from 'src/app/service/experiencia.service';
 @Component({
   selector: 'app-experiencia',
   templateUrl: './experiencia.component.html',
-  styleUrls: ['./experiencia.component.css']
+  styleUrls: ['./experiencia.component.css'],
 })
 export class ExperienciaComponent implements OnInit {
   operacion: string = 'Agregar ';
   modoEdit: any;
-  experiencias: Experiencia[]=[]
-  constructor(private Api:ExperienciaService, private AppService: AppService, public dialog: MatDialog,
-    private mensaje: MatSnackBar, ) { }
+  experiencias: Experiencia[] = [];
+  constructor(
+    private Api: ExperienciaService,
+    private AppService: AppService,
+    public dialog: MatDialog,
+    private mensaje: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     if (this.AppService.getToken() == null) {
-      this.modoEdit = false;        
-    }      
-    else{
-        this.modoEdit = true;      
+      this.modoEdit = false;
+    } else {
+      this.modoEdit = true;
     }
     this.cargar();
-    
   }
-  cargar():void{
-    this.Api.listaExperiencia().subscribe(data => this.experiencias=data);
+
+  cargar(): void {
+    this.Api.listaExperiencia().subscribe((data) => (this.experiencias = data));
   }
+
   openDialog(id?: number): void {
     const dialogRef = this.dialog.open(AgregarExperienciaComponent, {
       disableClose: true,
@@ -39,7 +43,7 @@ export class ExperienciaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.cargar();
+        setTimeout(() => {this.cargar();}, 4000)
       }
     });
   }
@@ -56,9 +60,4 @@ export class ExperienciaComponent implements OnInit {
       duration: 2000,
     });
   }
-
 }
-
- 
-
-  

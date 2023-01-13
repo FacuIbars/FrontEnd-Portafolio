@@ -4,7 +4,7 @@
         <div class="col-8"><h1>Soft Skill</h1></div>
         <div class="col-4">
           <button *ngIf="modoEdit" type="button" class="btn btn-primary" (click)="openDialog()">
-            Agregar Educacion
+            Agregar Soft Skill
           </button>
         </div>
         <h2 class="col-10 text-center mt-4" *ngIf="habilidadesBlandas.length == 0">
@@ -13,13 +13,13 @@
       </div>
     </div>
     <div class="bg p-5"></div>
-    <div *ngFor="let habilidadBlanda of habilidadesBlandas" class="card">
-      <div class="card-body">
+    <div *ngFor="let habilidadBlanda of habilidadesBlandas" class=" mt-3">
+      <div class="card-body ">
         <div class="card-title">
           <div class="container text-center">
             <div class="row">
               <div class="col-10">
-                <h5>{{ habilidadBlanda.habilidad }}</h5>
+                <h3>{{ habilidadBlanda.habilidad }}</h3>
               </div>
               <div *ngIf="modoEdit" class="col-1">
                 <button
@@ -54,6 +54,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
   <div class="bg p-5"></div>
