@@ -11,9 +11,11 @@ import { AppService } from "./app.service";
 @Injectable()
 export class InterceptorService implements HttpInterceptor{
     constructor(
-         private Api:AppService
+        private Api:AppService
          ) {}
-    intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>>{
+
+         
+    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
         const token = this.Api.getToken();
         if (token)
        {

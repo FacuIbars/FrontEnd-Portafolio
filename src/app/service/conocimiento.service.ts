@@ -8,7 +8,7 @@ import { Conocimiento } from '../models/conocimiento';
   providedIn: 'root'
 })
 export class ConocimientoService {
-  private endpoint='http://localhost:8080/';
+  private endpoint='https://porta-facuibars.koyeb.app/';
   private GetURL= this.endpoint + "ver/"
   private PostURL = this.endpoint + "new/"
   private PutURL= this.endpoint + "cambiar/";

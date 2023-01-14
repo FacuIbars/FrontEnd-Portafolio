@@ -7,7 +7,7 @@ import { Proyecto } from '../models/proyecto';
   providedIn: 'root'
 })
 export class ProyectoService {
-  private endpoint='http://localhost:8080/';
+  private endpoint='https://porta-facuibars.koyeb.app/';
   private GetURL= this.endpoint + "ver/"
   private PostURL = this.endpoint + "new/"
   private PutURL= this.endpoint + "cambiar/";

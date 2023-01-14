@@ -8,7 +8,7 @@ import { credenciales } from '../models/credenciales';
   providedIn: 'root'
 })
 export class AppService {
-  private endpoint='http://localhost:8080/';
+  private endpoint='https://porta-facuibars.koyeb.app/';
   private GetURL= this.endpoint + "ver/"
   private PutURL= this.endpoint + "cambiar/";
 
@@ -28,9 +28,10 @@ public buscarPersona(id:number): Observable<Persona>{
   return this.Httpclient.get<Persona>(this.GetURL + `persona/${id}`) ;
 }
 //Login
-login(creds:credenciales){
-  return this.Httpclient.post('http://localhost:8080/auth/login', creds, {
+login(creds:credenciales): Observable<any>{
+  return this.Httpclient.post('https://porta-facuibars.koyeb.app/auth/login', creds, {
     observe:'response'
+    
   }).pipe(map((response: HttpResponse<any>) => {
     const body = response.body;
     const token = body.token
@@ -40,7 +41,10 @@ login(creds:credenciales){
 
   }))
 }
+
 getToken(){
   return localStorage.getItem('token') ;
 }
 }
+
+
