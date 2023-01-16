@@ -1,35 +1,82 @@
-
-  
-  
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <h1  >Mi Portafolio</h1>
-      <img src="https://firebasestorage.googleapis.com/v0/b/storage-62811.appspot.com/o/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(17).png?alt=media&token=c6bd54b2-a0a6-4716-a878-60bc1e5c0c6f"
-      class="img-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="float-end"><div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <li  class="nav-item dropdown 
-        " >
-          <a class="nav-link  dropdown-toggle"   role="button" data-bs-toggle="dropdown" >Mis Redes Sociales
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <h1>Mi Portafolio</h1>
+    <img
+      src="https://firebasestorage.googleapis.com/v0/b/storage-62811.appspot.com/o/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(17).png?alt=media&token=c6bd54b2-a0a6-4716-a878-60bc1e5c0c6f"
+      class="img-fluid"
+    />
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="float-end">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            role="button"
+            data-bs-toggle="dropdown"
+            >Mis Redes Sociales
           </a>
-          <ul  class="dropdown-menu">
-            <li><a class="dropdown-item fs-4 " href="#"><i class="bi bi-whatsapp me-2"></i>    Whatsapp </a></li>
+          <ul class="dropdown-menu">
+            <li>
+              <a
+                class="dropdown-item fs-4"
+                href="https://api.whatsapp.com/send/?phone=543525518841&text&type=phone_number&app_absent=0"
+                target="_blank"
+                ><i class="bi bi-whatsapp me-2"></i> Whatsapp
+              </a>
+            </li>
             <div class="dropdown-divider"></div>
-            <li><a class="dropdown-item fs-4" href="#"><i class="bi bi-instagram  me-2"></i>    Instagram</a></li>
+            <li>
+              <a
+                class="dropdown-item fs-4"
+                href="https://instagram.com/facu.ibars?igshid=YmMyMTA2M2Y="
+                target="_blank"
+                ><i class="bi bi-instagram me-2"></i> Instagram</a
+              >
+            </li>
             <div class="dropdown-divider"></div>
-            <li><a class="dropdown-item fs-4" href="#"><i class="bi bi-github me-2"></i>     GitHub</a></li>
+            <li>
+              <a
+                class="dropdown-item fs-4"
+                href="https://github.com/FacuIbars"
+                target="_blank"
+                ><i class="bi bi-github me-2"></i> GitHub</a
+              >
+            </li>
             <div class="dropdown-divider"></div>
-            <li><a class="dropdown-item fs-4" href="#"><i class="bi bi-linkedin me-2"></i>    Linkedin</a></li>
-
+            <li>
+              <a
+                class="dropdown-item fs-4"
+                href="https://www.linkedin.com/in/facundo-ibars-543b651a1/"
+                target="_blank"
+                ><i class="bi bi-linkedin me-2"></i> Linkedin</a
+              >
+            </li>
           </ul>
         </li>
-        <Button class="btn btn-lg btn-primary mx-4" *ngIf="!modoEdit" (click)="IniciarSesion()" >Iniciar Sesión </Button>
-        
-        <Button class="btn btn-lg btn-primary mx-4 " *ngIf="modoEdit"  (click)="cerrarSesion()">Cerrar Sesión</Button>
-        
-      </div></div>
-      
+        <Button
+          class="btn btn-lg btn-primary mx-4"
+          *ngIf="!modoEdit"
+          (click)="IniciarSesion()"
+          >Iniciar Sesión
+        </Button>
+
+        <Button
+          class="btn btn-lg btn-primary mx-4"
+          *ngIf="modoEdit"
+          (click)="cerrarSesion()"
+          >Cerrar Sesión</Button
+        >
+      </div>
     </div>
-  </nav>
+  </div>
+</nav>
