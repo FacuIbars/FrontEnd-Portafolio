@@ -3,29 +3,32 @@
 
 
 
-<section class="row d-flex justify-content-center align-items-center ms-5 me-5  text-center " >
+<section class="row d-flex justify-content-center align-items-center text-center  " >
 
     
         
-        <div *ngFor="let perfil of persona" class="row justify-content-center align-items-center">
+        <div *ngFor="let perfil of persona" class="row justify-content-center align-items-center ">
            
-            <div  ><img width=100% height=100%   src={{perfil.portada}} >
+            <div class="p-0" ><img width=100% height=100%   src={{perfil.portada}} >
             </div>
             
             <div class="bg p-2" ></div>
-            <div class="col-md-3 col-lg-3 pb-2">
-                <img class="img-fluid rounded-circle img-thumbnail mt-3 border-1"src={{perfil.foto}} id="foto"
-                    alt="">
-                    <button *ngIf="modoEdit" type="button" class="btn btn-primary" (click)="openDialog(perfil.id!)">
-                        Editar Perfil
-                      </button>   
-            </div>
-            <div class="col-md-9 col-lg-9">
-                
-                <h1 >{{perfil.nombre}}</h1>
-                <h5 class="mt-4" >{{perfil.sobreMi}}</h5>
-                
-            </div>
+        
+                <div class="col-md-3  pb-2 ">
+                    <img class="img-fluid rounded-circle img-thumbnail mt-3 border-1"src={{perfil.foto}} id="foto"
+                        alt="">
+                        <button *ngIf="modoEdit" type="button" class="btn btn-primary" (click)="openDialog(perfil.id!)">
+                            Editar Perfil
+                          </button>   
+                </div>
+                <div class="col-md-8  ">
+                    
+                    <h1 >{{perfil.nombre}}</h1>
+                    <h5 class="mt-4" >{{perfil.sobreMi}}</h5>
+                    
+                </div>
+            
+           
         </div>
     
 

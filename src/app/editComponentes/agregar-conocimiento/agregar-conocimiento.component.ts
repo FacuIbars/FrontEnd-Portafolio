@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Conocimiento } from 'src/app/models/conocimiento';
-
 import { ConocimientoService } from 'src/app/service/conocimiento.service';
 
 @Component({
@@ -24,7 +23,7 @@ export class AgregarConocimientoComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.form = this.fb.group({
-      lenguaje: [[Validators.required, Validators.maxLength(250)]],
+      lenguaje: ['', [Validators.required, Validators.maxLength(250)]],
       skill: ['', Validators.required],
     });
     this.id = data.id;
@@ -37,7 +36,7 @@ export class AgregarConocimientoComponent implements OnInit {
     if (id !== undefined) {
       this.Operacion = 'Editar ';
       this.getConocimiento(id);
-      console.log(this.Operacion)
+      console.log(this.Operacion);
     }
   }
 
@@ -71,13 +70,12 @@ export class AgregarConocimientoComponent implements OnInit {
       );
     }
     this.mensajeExito();
-    this.dialogRef.close();
+    this.dialogRef.close(true);
   }
 
-  mensajeExito():void {
+  mensajeExito(): void {
     this.mensaje.open('Operación exitosa, por favor espere.', '', {
-      duration: 4000
-    })
-  
-   } 
+      duration: 4000,
+    });
+  }
 }

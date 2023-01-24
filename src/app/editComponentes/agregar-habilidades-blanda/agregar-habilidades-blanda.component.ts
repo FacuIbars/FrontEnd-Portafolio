@@ -73,10 +73,9 @@ export class AgregarHabilidadBlandaComponent {
     this.dialogRef.close(true);
   }
 
-  mensajeExito():void {
+  mensajeExito(): void {
     this.mensaje.open('Operación exitosa, por favor espere.', '', {
-      duration: 4000
-    })
-  
-   } 
+      duration: 4000,
+    });
+  }
 }
