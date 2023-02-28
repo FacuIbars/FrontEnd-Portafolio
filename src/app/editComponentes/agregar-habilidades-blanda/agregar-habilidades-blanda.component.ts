@@ -24,7 +24,7 @@ export class AgregarHabilidadBlandaComponent {
   ) {
     this.form = this.fb.group({
       habilidad: ['', [Validators.required, Validators.maxLength(250)]],
-      skill: ['', Validators.required],
+    
     });
     this.id = data.id;
   }
@@ -46,15 +46,15 @@ export class AgregarHabilidadBlandaComponent {
   gethabilidadBlanda(id: number) {
     this.AppService.buscarHabilidadBlanda(id).subscribe((data) => {
       this.form.patchValue({
-        habilidad: data.habilidad,
-        skill: data.skill,
+        habilidad: data.habilidad
+        
       });
     });
   }
   confirmar() {
     const habilidadBlanda: habilidadBlanda = {
       habilidad: this.form.value.habilidad,
-      skill: this.form.value.skill,
+      skill: this.form.value.skill
     };
     this.loading = true;
 

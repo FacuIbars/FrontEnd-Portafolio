@@ -33,7 +33,8 @@ export class InicioComponent implements OnInit {
   }
   openDialog(id: number): void {
     const dialogRef = this.dialog.open(EditInicioComponent, {
-      width: '550px',
+      width: '750px',
+     
       disableClose: true,
       data: { id: id },
      

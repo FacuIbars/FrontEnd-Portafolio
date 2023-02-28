@@ -18,12 +18,12 @@
     <span *ngIf="form.get('nombre')?.hasError('maxlength')">
       Excedio el numero maximo de caracteres!!
     </span>
-    <input
+  <textarea
       formControlName="sobreMi"
       type="text"
       class="form-control mt-2"
       placeholder="Ingrese descripcion sobre mi"
-    />
+    ></textarea>
     <span
       *ngIf="
         form.get('sobreMi')?.hasError('required') &&
